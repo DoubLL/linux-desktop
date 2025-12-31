@@ -14,6 +14,22 @@ This allows user files to be stored on the large media drive while keeping the s
 
 See [510_xdg_directories.md](510_xdg_directories.md) for the complete configuration.
 
+## Terminal and X11 Configuration (Xresources)
+
+Terminal appearance settings (colors, fonts, transparency) are defined in Xresources format.
+
+**Loaded via i3 autostart**: `xrdb -merge -I$HOME ~/.config/Xresources`
+
+The Xresources file defines:
+
+- Terminal colors (16-color palette)
+- Font settings and sizes
+- Transparency and shading
+- Cursor appearance
+- Scrollbar and border settings
+
+Note: Xresources is loaded at i3 startup by the autostart command in `~/.config/i3/config`. When using GDM/COSMIC login, `.xinitrc` is not used, so manual loading via `xrdb` is required.
+
 ## COSMIC Desktop Environment
 
 The system uses System76's COSMIC desktop environment (not GNOME Shell).

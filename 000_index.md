@@ -60,7 +60,7 @@ Workspace configurations and application groupings.
 - [620 - i3 Window Manager](620_i3.md) - i3 window manager installation and configuration
 - [630 - i3 Workspaces](630_i3_workspaces.md) - i3 workspace layout and assignment
 - [631 - Messengers Workspace](631_messengers_workspace.md) - Telegram, Signal, Discord on i3
-- [660 - Messengers Workspace](660_messengers_workspace.md) - Messengers workspace on COSMIC (alternative)
+- [640 - i3 Autostart](640_i3_autostart.md) - Autostart commands, wallpaper, and initialization
 
 ## Documentation Structure
 

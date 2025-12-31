@@ -32,7 +32,7 @@ See [340_waterfox.md](340_waterfox.md) for installation and KeePassXC integratio
 
 Hardware monitoring and fan control utilities for managing MSI motherboard fan speeds.
 
-**Configuration Files**: 
+**Configuration Files**:
 
 - `/etc/fancontrol` - Fan curve configuration
 - `/etc/modules-load.d/sensors.conf` - Kernel module loading
@@ -66,11 +66,13 @@ See [330_gamingtools.md](330_gamingtools.md) for details on gaming-related appli
 
 #### OpenTabletDriver
 
-Graphics tablet driver for supporting drawing tablets on Linux.
+Graphics tablet driver for supporting drawing tablets on Linux. Includes systemd user service for automatic daemon startup on login.
 
 **Configuration Location**: `~/.config/OpenTabletDriver/`
+**GUI Application**: `otd-gui` - Configuration and calibration interface
+**Daemon Service**: Runs as systemd user service (`opentabletdriver.service`)
 
-See [310_opentabletdriver.md](310_opentabletdriver.md) for installation and configuration details.
+See [310_opentabletdriver.md](310_opentabletdriver.md) for installation and systemd daemon configuration details.
 
 ## Related Documentation
 

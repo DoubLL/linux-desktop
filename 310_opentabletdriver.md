@@ -86,6 +86,42 @@ systemctl --user enable --now opentabletdriver.service
 otd-gui
 ```
 
+## Daemon Setup (systemd)
+
+The OpenTabletDriver daemon runs as a systemd user service that auto-starts on login.
+
+**Service Configuration**: `/usr/lib/systemd/user/opentabletdriver.service`
+
+**User Override**: `~/.config/systemd/user/opentabletdriver.service.d/override.conf` (sets `DISPLAY=:2`)
+
+### Managing the Daemon
+
+**Start the daemon**:
+
+```bash
+systemctl --user start opentabletdriver
+```
+
+**Enable auto-start on login**:
+
+```bash
+systemctl --user enable opentabletdriver
+```
+
+**Check status**:
+
+```bash
+systemctl --user status opentabletdriver
+```
+
+**View daemon logs**:
+
+```bash
+journalctl --user -u opentabletdriver -n 50
+```
+
+**Note on DISPLAY**: The systemd override sets `DISPLAY=:2` explicitly, which may need adjustment if you run i3 on a different display number. Check with `echo $DISPLAY` in your i3 session.
+
 ## Configuration
 
 **Configuration Location**: `~/.config/OpenTabletDriver/settings.json`
