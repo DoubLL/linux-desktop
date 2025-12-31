@@ -4,6 +4,10 @@
 
 This page documents applications that were manually installed beyond the default Pop_OS setup and have some special configuration or usage notes.
 
+## Installation Method Notes
+
+**IMPORTANT**: Do not install applications with Flatpak. Flatpak creates sandboxing and DBus integration issues, especially with X11/i3 window manager. Always prefer native packages (.deb files), AppImage, or manual compilation. Native packages are simpler, more reliable, and integrate better with the system.
+
 ## Important Applications
 
 ### rclone

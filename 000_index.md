@@ -4,7 +4,7 @@
 
 This workspace contains documentation for customizations and configurations made to this Pop_OS system. The documentation follows a hierarchical structure similar to OneNote, where main topics have numbered pages (100, 200, 300) and child pages provide additional details (210, 220, 310, etc.).
 
-**Documentation Principle**: Only custom configurations and manually installed software are documented here—not default Pop_OS features or pre-installed applications.
+**Documentation Principle**: Only custom configurations and manually installed software are documented here - not default Pop_OS features or pre-installed applications.
 
 ## Navigation
 
@@ -49,6 +49,18 @@ Custom configuration files and system settings.
 - [510 - XDG User Directories](510_xdg_directories.md) - Custom user directory configuration
 - [520 - COSMIC Desktop](520_cosmic_desktop.md) - COSMIC desktop environment settings
 - [530 - Fan Control](530_fan_control.md) - MSI motherboard fan control configuration
+
+### [600 - Desktop Workspaces & Applications](600_window_management.md)
+
+Workspace configurations and application groupings.
+
+**Child Pages:**
+
+- [610 - COSMIC Desktop](610_cosmic.md) - COSMIC desktop environment setup
+- [620 - i3 Window Manager](620_i3.md) - i3 window manager installation and configuration
+- [630 - i3 Workspaces](630_i3_workspaces.md) - i3 workspace layout and assignment
+- [631 - Messengers Workspace](631_messengers_workspace.md) - Telegram, Signal, Discord on i3
+- [660 - Messengers Workspace](660_messengers_workspace.md) - Messengers workspace on COSMIC (alternative)
 
 ## Documentation Structure
 
