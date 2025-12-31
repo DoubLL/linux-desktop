@@ -104,37 +104,64 @@ bindsym --release Mod4+Shift+Print exec gnome-screenshot -a
 bindsym Mod4+l exec i3lock -c \#456789 -e -f
 
 ###############################################################################
+#                          window assignment rules                            #
+###############################################################################
+
+# Terminal windows always open in workspace 1
+for_window [class="URxvt"] move container to workspace $tag1
+
+# Waterfox browser always opens in workspace 2
+for_window [class="waterfox"] move container to workspace $tag2
+
+# Messaging apps always open in workspace 6
+for_window [class="TelegramDesktop"] move container to workspace $tag6
+for_window [class="Signal"] move container to workspace $tag6
+for_window [class="discord"] move container to workspace $tag6
+
+# VS Code always opens in workspace 3
+for_window [class="Code"] move container to workspace $tag3
+
+# Steam always opens in workspace 4
+for_window [class="steam" window_role="PySide2 Application"] move container to workspace $tag4
+for_window [class="steam"] move container to workspace $tag4
+
+###############################################################################
 #                                  autostart                                  #
 ###############################################################################
+
+# Initialize workspaces in correct order (before any windows open)
+exec --no-startup-id "sleep 0.5; i3-msg workspace 1; i3-msg workspace 2; i3-msg workspace 3; i3-msg workspace 4; i3-msg workspace 1"
 
 # Apply monitor layout (must be first)
 exec --no-startup-id "sh -c 'sleep 1; sh ~/.local/bin/monitor-layout.sh'"
 
+# Merge Xresources for terminal colors and settings
+exec --no-startup-id "xrdb -merge -I$HOME ~/.config/Xresources"
+
+# Set wallpaper (with delay to ensure monitors are configured)
+exec --no-startup-id "sh -c 'sleep 3; feh --bg-fill ~/Pictures/microsoft-windows-95.png'"
+
+# OpenTabletDriver daemon
+exec --no-startup-id "systemctl --user start opentabletdriver"
+
 # Terminal - autostart to workspace 1
 exec --no-startup-id "sh -c 'sleep 1; exec urxvt -geometry 120x40'"
-for_window [class="URxvt"] move container to workspace $tag1
 
 # Messaging apps - autostart to Messengers workspace (DP-2)
 exec --no-startup-id "sh -c 'sleep 2; exec flatpak run org.telegram.desktop'"
-for_window [class="TelegramDesktop"] move container to workspace $tag6
 
 exec --no-startup-id "sh -c 'sleep 2; exec signal-desktop'"
-for_window [class="Signal"] move container to workspace $tag6
 
 exec --no-startup-id "sh -c 'sleep 2; exec discord'"
-for_window [class="discord"] move container to workspace $tag6
 
 # Browser - autostart to workspace 2
 exec --no-startup-id "sh -c 'sleep 1; exec waterfox'"
-for_window [class="Waterfox"] move container to workspace $tag2
 
 # VS Code - autostart to workspace 3
 exec --no-startup-id "sh -c 'sleep 2; exec code'"
-for_window [class="Code"] move container to workspace $tag3
 
 # GUI Editor with i3 config - autostart to tablet workspace 7
 exec --no-startup-id "sh -c 'sleep 3; exec mousepad /home/doubll/dev/i3/config'"
-for_window [class="Mousepad"] move container to workspace 7
 
 # Audio routing (qpwgraph) - load saved patchbay configuration
 exec --no-startup-id "sh -c 'sleep 4; exec qpwgraph -a -m ~/.config/qpwgraph/default.qpwgraph'"
