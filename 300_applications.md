@@ -14,6 +14,27 @@ Command-line tool for syncing files with cloud storage providers.
 
 See [320_rclone.md](320_rclone.md) for setup and usage details.
 
+### Waterfox
+
+Privacy-focused web browser based on Firefox. Installed natively (not Flatpak) to enable KeePassXC browser integration.
+
+**Installation Location**: `/opt/waterfox/`
+**Executable**: `/usr/local/bin/waterfox`
+**Configuration Location**: `~/.waterfox/`
+
+See [340_waterfox.md](340_waterfox.md) for installation and KeePassXC integration details.
+
+### lm-sensors and fancontrol
+
+Hardware monitoring and fan control utilities for managing MSI motherboard fan speeds.
+
+**Configuration Files**: 
+
+- `/etc/fancontrol` - Fan curve configuration
+- `/etc/modules-load.d/sensors.conf` - Kernel module loading
+
+See [530_fan_control.md](530_fan_control.md) for complete setup and configuration.
+
 ### Steam
 
 Gaming platform for managing and playing games. Installed with library on dedicated `/games` drive.
@@ -52,4 +73,5 @@ See [310_opentabletdriver.md](310_opentabletdriver.md) for installation and conf
 - [310_opentabletdriver.md](310_opentabletdriver.md) - OpenTabletDriver setup
 - [320_rclone.md](320_rclone.md) - rclone cloud sync configuration
 - [330_gamingtools.md](330_gamingtools.md) - Gaming tools and configurations
+- [340_waterfox.md](340_waterfox.md) - Waterfox browser and KeePassXC integration
 - [200_storage.md](200_storage.md) - Storage configuration for Steam library

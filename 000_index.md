@@ -48,6 +48,7 @@ Custom configuration files and system settings.
 
 - [510 - XDG User Directories](510_xdg_directories.md) - Custom user directory configuration
 - [520 - COSMIC Desktop](520_cosmic_desktop.md) - COSMIC desktop environment settings
+- [530 - Fan Control](530_fan_control.md) - MSI motherboard fan control configuration
 
 ## Documentation Structure
 
@@ -88,13 +89,6 @@ Files follow the pattern `XXX_descriptive_name.md` where:
 - Git 2.x (`/usr/bin/git`)
 - VS Code (Flatpak installation)
 
-### Custom Software
-
-- OpenTabletDriver - Graphics tablet support
-- rclone - Cloud storage sync
-- Sidekick - Productivity browser
-- Steam - Gaming platform
-
 ## Maintaining This Documentation
 
 ### Automatic Updates
@@ -109,55 +103,3 @@ When making changes outside of this workspace:
 2. Create or update child pages with specific details
 3. Add new pages to this index if necessary
 4. Keep the numbering scheme consistent
-
-### What to Document
-
-- Custom installed applications
-- Modified configuration files
-- Custom mount points and storage
-- Development tool versions and setups
-- Non-default system settings
-
-Do not document:
-
-- Default Pop_OS features
-- Pre-installed software
-- Standard system configurations
-
-## File List
-
-### Main Pages (X00)
-
-1. [000_index.md](000_index.md) - This file
-2. [100_general.md](100_general.md) - General system overview
-3. [200_storage.md](200_storage.md) - Storage configuration
-4. [300_applications.md](300_applications.md) - Custom applications
-5. [400_development.md](400_development.md) - Development environment
-6. [500_configurations.md](500_configurations.md) - Configuration files
-
-### Storage Pages (2XX)
-
-- [210_games_mount.md](210_games_mount.md) - Games drive details
-- [220_media_mount.md](220_media_mount.md) - Media drive details
-
-### Application Pages (3XX)
-
-- [310_opentabletdriver.md](310_opentabletdriver.md) - OpenTabletDriver setup
-- [320_rclone.md](320_rclone.md) - rclone configuration
-- [330_sidekick.md](330_sidekick.md) - Sidekick browser
-
-### Development Pages (4XX)
-
-- [410_python_setup.md](410_python_setup.md) - Python environment
-- [420_project_locations.md](420_project_locations.md) - Project inventory
-
-### Configuration Pages (5XX)
-
-- [510_xdg_directories.md](510_xdg_directories.md) - XDG directory configuration
-- [520_cosmic_desktop.md](520_cosmic_desktop.md) - COSMIC desktop settings
-
-### Meta Files
-
-- [.github/copilot-instructions.md](.github/copilot-instructions.md) - Copilot documentation maintenance instructions
-
----

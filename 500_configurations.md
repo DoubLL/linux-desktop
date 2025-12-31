@@ -24,6 +24,17 @@ COSMIC settings and customizations are stored in this directory.
 
 See [520_cosmic_desktop.md](520_cosmic_desktop.md) for desktop-specific configurations.
 
+## Fan Control
+
+Custom fan control configuration for MSI MPG X570 GAMING PLUS motherboard using lm-sensors and fancontrol.
+
+**Configuration File**: `/etc/fancontrol`
+**Module Configuration**: `/etc/modules-load.d/sensors.conf`
+
+Replaces BIOS automatic fan curves with quieter Linux-controlled curves optimized for low noise at idle.
+
+See [530_fan_control.md](530_fan_control.md) for complete setup and configuration details.
+
 ## Application Configurations
 
 ### OpenTabletDriver

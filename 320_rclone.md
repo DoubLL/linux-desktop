@@ -116,7 +116,7 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/rclone mount GDrive: %h/gdrive --vfs-cache-mode writes --rc --rc-web-gui
+ExecStart=/usr/bin/rclone mount GDrive: %h/gdrive --vfs-cache-mode writes --rc
 ExecStop=/bin/fusermount -u %h/gdrive
 Restart=on-failure
 
