@@ -133,46 +133,39 @@ for_window [class="steam"] move container to workspace $tag4
 exec --no-startup-id "sleep 0.5; i3-msg workspace 1; i3-msg workspace 2; i3-msg workspace 3; i3-msg workspace 4; i3-msg workspace 1"
 
 # Apply monitor layout (must be first)
-exec --no-startup-id "sh -c 'sleep 1; sh ~/.local/bin/monitor-layout.sh'"
+exec --no-startup-id "sh -c 'sleep 0.2; sh ~/.local/bin/monitor-layout.sh'"
 
 # Merge Xresources for terminal colors and settings
 exec --no-startup-id "xrdb -merge -I$HOME ~/.config/Xresources"
 
-# Set wallpaper (with delay to ensure monitors are configured)
+# Set wallpaper
 exec --no-startup-id "sh -c 'sleep 3; feh --bg-fill ~/Pictures/microsoft-windows-95.png'"
 
 # OpenTabletDriver daemon
 exec --no-startup-id "systemctl --user start opentabletdriver"
 
-# Terminal - autostart to workspace 1
-exec --no-startup-id "sh -c 'sleep 1; exec urxvt -geometry 120x40'"
+# Terminal
+exec --no-startup-id "sh -c 'sleep 4; exec urxvt -geometry 120x40'"
 
-# Messaging apps - autostart to Messengers workspace (DP-2)
-exec --no-startup-id "sh -c 'sleep 2; exec flatpak run org.telegram.desktop'"
+# Messaging apps
+exec --no-startup-id "sh -c 'sleep 4; exec flatpak run org.telegram.desktop'"
+exec --no-startup-id "sh -c 'sleep 4; exec signal-desktop'"
+exec --no-startup-id "sh -c 'sleep 4; exec discord'"
 
-exec --no-startup-id "sh -c 'sleep 2; exec signal-desktop'"
+# Browser
+exec --no-startup-id "sh -c 'sleep 4.5; exec waterfox'"
 
-exec --no-startup-id "sh -c 'sleep 2; exec discord'"
-
-# Browser - autostart to workspace 2
-exec --no-startup-id "sh -c 'sleep 1; exec waterfox'"
-
-# VS Code - autostart to workspace 3
-exec --no-startup-id "sh -c 'sleep 2; exec code'"
-
-# GUI Editor with i3 config - autostart to tablet workspace 7
-exec --no-startup-id "sh -c 'sleep 3; exec mousepad /home/doubll/dev/i3/config'"
+# VS Code
+exec --no-startup-id "sh -c 'sleep 5; exec code'"
 
 # Audio routing (qpwgraph) - load saved patchbay configuration
 exec --no-startup-id "sh -c 'sleep 4; exec qpwgraph -a -m ~/.config/qpwgraph/default.qpwgraph'"
-
 
 ###############################################################################
 #                                    dmenu                                    #
 ###############################################################################
 # start dmenu
 bindsym Mod4+space exec --no-startup-id dmenu_run
-
 
 ###############################################################################
 #                                    focus                                    #
@@ -241,12 +234,13 @@ bindsym Mod1+minus scratchpad show
 ###############################################################################
 
 # Workspace names
-set $tag1 "&#xf120; Terminal"
-set $tag2 "&#xf268; Waterfox"
-set $tag3 "&#xf121; Development"
-set $tag4 "&#xf1b7; Games"
-set $tag5 "&#xf1bc; Media"
-set $tag6 "&#xf1d9; Messengers"
+set $tag1 "&#xf120; 1 - Shell"
+set $tag2 "&#xf268; 2 - Web"
+set $tag3 "&#xf121; 3 - Dev"
+set $tag4 "&#xf1b7; 4 - Games"
+set $tag5 "&#xf1bc; 5 - Media"
+set $tag6 "&#xf1d9; 6 - Messengers"
+set $tag7 "&#x270f; 7 - Tablet"
 
 # Monitor assignments
 workspace $tag1 output DP-4
@@ -255,9 +249,9 @@ workspace $tag3 output DP-4
 workspace $tag4 output DP-4
 workspace $tag5 output DP-4
 workspace $tag6 output DP-3
+workspace $tag7 output DP-1
 
 # Additional workspaces for other monitors
-workspace 7 output DP-1
 workspace 8 output DP-1
 workspace 9 output HDMI-0
 workspace 10 output HDMI-0
