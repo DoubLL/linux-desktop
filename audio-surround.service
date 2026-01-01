@@ -1,0 +1,14 @@
+[Unit]
+Description=Enable surround sound audio on login
+After=pipewire.service wireplumber.service
+Wants=pipewire.service wireplumber.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/doubll/dev/scripts/audio-surround.sh
+RemainAfterExit=yes
+# Wait a bit for PipeWire to be fully ready
+ExecStartPre=/bin/sleep 2
+
+[Install]
+WantedBy=default.target
