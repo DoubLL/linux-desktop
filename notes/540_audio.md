@@ -12,6 +12,14 @@ This system uses PipeWire for audio routing with custom configurations to suppor
 - **Surround System**: Sony AVSystem (5.1 surround speakers)
 - **TV**: LG TV SSCR2 (HDMI audio passthrough)
 
+### HDMI Display Configuration
+
+**CRITICAL**: The TV (HDMI-0) must be configured as an active display for HDMI audio to work. The TV mirrors the 1920x1080 monitor (DP-3) at 1080p resolution.
+
+**Configuration Command**: `xrandr --output HDMI-0 --mode 1920x1080 --same-as DP-3`
+
+This is automatically applied on i3 startup via the autostart configuration in `~/.config/i3/config`.
+
 ### Audio Outputs Detected
 
 1. **alsa_output.pci-0000_2d_00.1.hdmi-stereo** - Sony AVSystem / LG TV (Stereo)
@@ -238,21 +246,40 @@ audio-status
 
 ### No sound from TV/surround system
 
-1. Verify TV is powered on
-2. Check TV audio output settings:
-   - Should be set to "HDMI-ARC" or "External Audio System"
-   - NOT set to "TV Speakers"
-3. Verify Sony AVSystem is:
+#### Check if HDMI audio device is available
+
+The most common issue is that the HDMI audio device is not detected by the system. Check if the surround profile is available:
+
+```bash
+pactl list cards | grep -A 10 "alsa_card.pci-0000_2d_00.1" | grep "hdmi-surround"
+```
+
+If it shows `available: no`, the HDMI display is not active. This happens when:
+- The TV is off or in standby
+- The HDMI display is not configured in xrandr
+- The Sony AVSystem is off
+
+**Solution**: Ensure the TV is mirroring a monitor:
+
+```bash
+xrandr --output HDMI-0 --mode 1920x1080 --same-as DP-3
+```
+
+Then run `audio-surround` again.
+
+#### Verify hardware is powered on
+
+1. Verify Sony AVSystem is:
    - Powered on
    - Set to the TV/ARC input
    - Volume is up and not muted
-4. Check current configuration:
+3. Check current configuration:
 
    ```bash
    audio-status
    ```
 
-5. Re-run surround activation:
+4. Re-run surround activation:
 
    ```bash
    audio-surround
@@ -269,6 +296,32 @@ audio-surround
 ### Left/Right channels are reversed
 
 This is intentional! The swap compensates for the surround system's physical positioning. If you need to change it, edit the `pw-link` commands in `~/dev/scripts/audio-surround.sh` to connect FL→FL and FR→FR instead of the swapped configuration.
+
+### HDMI audio device shows "not available"
+
+This is the primary issue when surround sound doesn't work. The HDMI audio port is only available when:
+
+1. **The HDMI display is active in xrandr** - Run:
+   ```bash
+   xrandr | grep HDMI-0
+   ```
+   Should show a resolution (e.g., `1920x1080`) not just "connected"
+
+2. **The display is sending EDID information** - Check:
+   ```bash
+   cat /sys/class/drm/card0-HDMI-A-1/status
+   ```
+   Should show "connected"
+
+3. **The TV/receiver is powered on** - Not in standby mode
+
+If the HDMI display is inactive or the TV is off, the audio profile will show `available: no` and audio cannot be routed to it, even if the script runs successfully.
+
+**Fix**: Configure the TV as a mirror display:
+```bash
+xrandr --output HDMI-0 --mode 1920x1080 --same-as DP-3
+audio-surround
+```
 
 ### Scripts don't exist or aren't executable
 
@@ -306,8 +359,11 @@ This system uses PipeWire, which is the modern replacement for PulseAudio. PipeW
 
 - Lower latency
 - Better Bluetooth support
-- Pro audio capabilities
-- Compatibility with PulseAudio applications
+- **The TV (HDMI-0) must be configured as an active display in xrandr** - not just connected, but actively displaying
+- Different HDMI outputs appear/disappear based on connected displays
+- Switching profiles may require the Sony AVSystem to be active
+
+**Important**: Linux HDMI audio requires the display to be active. Simply connecting the HDMI cable is not enough - the display must be part of the xrandr configuration (either as a separate display or mirroring another display). The i3 autostart configuration handles this automatically by mirroring HDMI-0 to DP-3.
 
 Commands like `pactl` are from PulseAudio but work with PipeWire through compatibility layers.
 

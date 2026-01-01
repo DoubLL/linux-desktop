@@ -135,6 +135,9 @@ exec --no-startup-id "sleep 0.5; i3-msg workspace 1; i3-msg workspace 2; i3-msg 
 # Apply monitor layout (must be first)
 exec --no-startup-id "sh -c 'sleep 0.2; sh ~/.local/bin/monitor-layout.sh'"
 
+# Configure TV to mirror 1080p monitor for audio support
+exec --no-startup-id "sh -c 'sleep 1; xrandr --output HDMI-0 --mode 1920x1080 --same-as DP-3'"
+
 # Merge Xresources for terminal colors and settings
 exec --no-startup-id "xrdb -merge -I$HOME ~/.config/Xresources"
 
