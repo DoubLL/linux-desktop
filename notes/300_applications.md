@@ -47,6 +47,46 @@ Gaming platform for managing and playing games. Installed with library on dedica
 
 Game installations are stored on the `/games` mount to preserve system drive space.
 
+### Shutter
+
+Screenshot tool for capturing, editing, and managing screenshots in i3 window manager.
+
+**Installation**: `sudo apt install shutter`
+**Configuration Location**: `~/.shutter/`
+**Output Locations**:
+- Interactive mode: Opens shutter GUI for editing/saving
+- Instant-save mode: `~/Pictures/Screenshots/` with timestamp filenames
+
+**Helper Scripts**: `~/dev/linux/scripts/screenshot-shutter.sh`
+
+**Features**:
+- Area selection (interactive)
+- Active window capture
+- Full screen capture
+- Built-in editor for annotations and markup
+- Instant-save mode for quick screenshots without GUI
+
+See [620_i3.md](620_i3.md) for complete keybindings and usage.
+
+### FFmpeg (Video Recording)
+
+Command-line multimedia framework used for screen recording with audio capture.
+
+**Installation**: `sudo apt install ffmpeg slop xdotool`
+**Output Location**: `~/Videos/Recordings/` with timestamp filenames
+**Helper Scripts**: 
+- `~/dev/linux/scripts/video-start.sh` - Start recordings
+- `~/dev/linux/scripts/video-stop.sh` - Stop active recordings
+
+**Features**:
+- Area selection with slop
+- Active window recording with xdotool
+- Full screen recording
+- Audio capture from default PulseAudio/PipeWire sink
+- H.264 encoding with balanced quality (CRF 23)
+
+See [620_i3.md](620_i3.md) for complete keybindings and usage.
+
 ## Gaming Tools
 
 See [330_gamingtools.md](330_gamingtools.md) for details on gaming-related applications and configurations.

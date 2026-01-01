@@ -69,14 +69,14 @@ bindsym Mod1+Shift+q kill
 # for_window [urgent=latest] active
 
 # Disable titlebar
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 5
 
 ###############################################################################
 #                                 applications                                #
 ###############################################################################
 
 # Terminal
-bindsym Mod4+Return exec urxvt -geometry 120x40
+bindsym Mod4+Return exec urxvt
 
 # Floating terminal
 bindsym Mod4+Shift+Return exec urxvt -name "floating_terminal" -geometry 120x40
@@ -96,9 +96,28 @@ bindsym Mod4+c exec code
 # Steam
 bindsym Mod4+Shift+s exec steam
 
-# Screenshot
-bindsym Mod4+Print exec gnome-screenshot
-bindsym --release Mod4+Shift+Print exec gnome-screenshot -a
+# Screenshots (shutter)
+bindsym Print exec /home/doubll/dev/linux/scripts/screenshot-shutter.sh area
+bindsym Shift+Print exec /home/doubll/dev/linux/scripts/screenshot-shutter.sh window
+bindsym Mod1+Print exec /home/doubll/dev/linux/scripts/screenshot-shutter.sh fullscreen
+
+# Screenshots (instant-save to ~/Pictures/Screenshots)
+bindsym Ctrl+Print exec /home/doubll/dev/linux/scripts/screenshot-shutter.sh area --instant-save
+bindsym Ctrl+Shift+Print exec /home/doubll/dev/linux/scripts/screenshot-shutter.sh window --instant-save
+bindsym Ctrl+Mod1+Print exec /home/doubll/dev/linux/scripts/screenshot-shutter.sh fullscreen --instant-save
+
+# Video recording (start)
+bindsym Mod4+Print exec /home/doubll/dev/linux/scripts/video-start.sh area
+bindsym Mod4+Shift+Print exec /home/doubll/dev/linux/scripts/video-start.sh window
+bindsym Mod4+Mod1+Print exec /home/doubll/dev/linux/scripts/video-start.sh fullscreen
+
+# Video recording (instant-save to ~/Videos/Recordings)
+bindsym Mod4+Ctrl+Print exec /home/doubll/dev/linux/scripts/video-start.sh area --instant-save
+bindsym Mod4+Ctrl+Shift+Print exec /home/doubll/dev/linux/scripts/video-start.sh window --instant-save
+bindsym Mod4+Ctrl+Mod1+Print exec /home/doubll/dev/linux/scripts/video-start.sh fullscreen --instant-save
+
+# Video recording (stop)
+bindsym Mod4+Escape exec /home/doubll/dev/linux/scripts/video-stop.sh
 
 # Lock screen
 bindsym Mod4+l exec i3lock -c \#456789 -e -f
@@ -134,6 +153,9 @@ exec --no-startup-id "/home/doubll/dev/linux/scripts/monitor-layout.sh >> /tmp/i
 
 # Merge Xresources for terminal colors and settings
 exec --no-startup-id "xrdb -merge -I$HOME ~/.config/Xresources"
+
+# Notification daemon
+exec --no-startup-id dunst
 
 # Set wallpaper
 exec --no-startup-id "sh -c 'sleep 1; feh --bg-fill ~/Pictures/microsoft-windows-95.png'"
