@@ -239,7 +239,7 @@ workspace $tag2 output DP-4
 workspace $tag3 output DP-4
 workspace $tag4 output DP-4
 workspace $tag5 output DP-4
-workspace $tag6 output DP-3
+workspace $tag6 output HDMI-0
 workspace $tag7 output DP-1
 
 # Additional workspaces for other monitors
