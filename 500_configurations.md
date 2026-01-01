@@ -73,10 +73,22 @@ Browser-specific settings and cache.
 
 ### Audio Configuration
 
-**Files:**
+**Configuration Files:**
 
+- `~/dev/scripts/audio-aliases.sh` - Shell aliases for audio switching
+- `~/dev/services/audio-surround.service` - Systemd service for autostart
 - `~/.config/pavucontrol.ini` - PulseAudio volume control settings
 - `~/.config/pipewire/` - PipeWire audio system configuration
+
+**Shell Integration:**
+
+`~/.bashrc` sources `~/dev/scripts/audio-aliases.sh` to provide convenient commands for switching audio configurations.
+
+**Autostart:**
+
+A systemd user service (`audio-surround.service`) automatically enables 5.1 surround sound on login.
+
+See [540_audio.md](540_audio.md) for complete audio setup and usage details.
 
 ## Other Configuration Directories
 
@@ -101,4 +113,6 @@ This should be investigated to ensure mount persistence.
 
 - [510_xdg_directories.md](510_xdg_directories.md) - XDG user directories configuration
 - [520_cosmic_desktop.md](520_cosmic_desktop.md) - COSMIC desktop settings
+- [530_fan_control.md](530_fan_control.md) - Fan control configuration
+- [540_audio.md](540_audio.md) - Audio system configuration and management
 - [300_applications.md](300_applications.md) - Application-specific configurations

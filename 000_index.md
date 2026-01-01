@@ -49,6 +49,7 @@ Custom configuration files and system settings.
 - [510 - XDG User Directories](510_xdg_directories.md) - Custom user directory configuration
 - [520 - COSMIC Desktop](520_cosmic_desktop.md) - COSMIC desktop environment settings
 - [530 - Fan Control](530_fan_control.md) - MSI motherboard fan control configuration
+- [540 - Audio Configuration](540_audio.md) - PipeWire audio routing and surround sound setup
 
 ### [600 - Desktop Workspaces & Applications](600_window_management.md)
 
