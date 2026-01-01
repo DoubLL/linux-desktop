@@ -30,6 +30,7 @@ Manually installed applications beyond default Pop_OS software.
 - [310 - OpenTabletDriver](310_opentabletdriver.md) - Tablet driver configuration
 - [320 - rclone](320_rclone.md) - Cloud storage sync configuration
 - [330 - Sidekick Browser](330_sidekick.md) - Browser installation and configuration
+- [350 - YouTube Download Tools](350_youtube_tools.md) - YouTube video and playlist downloader scripts
 
 ### [400 - Development Environment](400_development.md)
 

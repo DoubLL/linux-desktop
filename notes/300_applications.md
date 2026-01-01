@@ -51,6 +51,26 @@ Game installations are stored on the `/games` mount to preserve system drive spa
 
 See [330_gamingtools.md](330_gamingtools.md) for details on gaming-related applications and configurations.
 
+## YouTube Downloaders
+
+Command-line tools for downloading YouTube videos and playlists.
+
+**Installation**: 
+```bash
+sudo apt install ffmpeg
+sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+sudo chmod a+rx /usr/local/bin/yt-dlp
+```
+
+**Scripts Location**: `~/dev/linux/scripts/ytd-*.sh`
+**Download Locations**:
+- Videos: `~/Videos/` (or `~/Videos/PlaylistName/` for playlists)
+- Music: `~/Music/` (or `~/Music/PlaylistName/` for playlists)
+
+**History and Cache**: `~/.local/share/ytd/`
+
+See [350_youtube_tools.md](350_youtube_tools.md) for usage examples and configuration details.
+
 ## Manually Installed Applications
 
 ### Installed through AppImage
