@@ -2,7 +2,7 @@
 # Custom disk usage script showing used/total instead of free space
 
 DIR="${1:-$HOME}"
-ALERT_THRESHOLD="${2:-90}" # Alert when used% exceeds this value (default: 90%)
+ALERT_THRESHOLD="${2:-90}" # Alert when used% exceeds 90%
 
 # Get disk usage info
 df -h -P -l "$DIR" | awk -v alert_threshold=$ALERT_THRESHOLD '

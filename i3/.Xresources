@@ -51,6 +51,6 @@ URxvt*cursorColor:	#5ba8d8
 ##################### Fonts ######################
 
 URxvt.font:	xft:Monospace:pixelsize=24:antialias=true:autohint=true
-URxvt.boldFont:	xft:Monospace:bold:pixelsize=24:antialias=true:autohint=true
+URxvt.boldFont:	xft:Monospace:bold:pixelsize=16:antialias=true:autohint=true
 URxvt*lineSpace: 0
 URxvt*letterSpace: 0

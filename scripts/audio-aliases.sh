@@ -3,9 +3,9 @@
 #
 # source ~/dev/configs/audio-aliases.sh
 
-alias audio-surround='~/dev/scripts/audio-surround.sh'
-alias audio-headset='~/dev/scripts/audio-headset-only.sh'
-alias audio-status='~/dev/scripts/audio-status.sh'
+alias audio-surround='~/dev/linux/scripts/audio-surround.sh'
+alias audio-headset='~/dev/linux/scripts/audio-headset-only.sh'
+alias audio-status='~/dev/linux/scripts/audio-status.sh'
 
 echo "Audio aliases loaded:"
 echo "  audio-surround  - Enable 5.1 surround sound"

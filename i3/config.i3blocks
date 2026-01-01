@@ -1,6 +1,4 @@
 # i3blocks config file - Desktop PC configuration
-# Removed: battery, network (WiFi, ethernet, bandwidth) - not needed for desktop
-#
 # Please see man i3blocks for a complete reference!
 
 # Global properties

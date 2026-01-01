@@ -129,40 +129,28 @@ for_window [class="steam"] move container to workspace $tag4
 #                                  autostart                                  #
 ###############################################################################
 
-# Initialize workspaces in correct order (before any windows open)
-exec --no-startup-id "sleep 0.5; i3-msg workspace 1; i3-msg workspace 2; i3-msg workspace 3; i3-msg workspace 4; i3-msg workspace 1"
-
-# Apply monitor layout (must be first)
-exec --no-startup-id "sh -c 'sleep 0.2; sh ~/.local/bin/monitor-layout.sh'"
-
-# Configure TV to mirror 1080p monitor for audio support
-exec --no-startup-id "sh -c 'sleep 1; xrandr --output HDMI-0 --mode 1920x1080 --same-as DP-3'"
+# Monitor layout
+exec --no-startup-id "/home/doubll/dev/linux/scripts/monitor-layout.sh >> /tmp/i3-monitor-layout.log 2>&1"
 
 # Merge Xresources for terminal colors and settings
 exec --no-startup-id "xrdb -merge -I$HOME ~/.config/Xresources"
 
 # Set wallpaper
-exec --no-startup-id "sh -c 'sleep 3; feh --bg-fill ~/Pictures/microsoft-windows-95.png'"
-
-# OpenTabletDriver daemon
-exec --no-startup-id "systemctl --user start opentabletdriver"
+exec --no-startup-id "sh -c 'sleep 1; feh --bg-fill ~/Pictures/microsoft-windows-95.png'"
 
 # Terminal
-exec --no-startup-id "sh -c 'sleep 4; exec urxvt -geometry 120x40'"
-
-# Messaging apps
-exec --no-startup-id "sh -c 'sleep 4; exec flatpak run org.telegram.desktop'"
-exec --no-startup-id "sh -c 'sleep 4; exec signal-desktop'"
-exec --no-startup-id "sh -c 'sleep 4; exec discord'"
+exec --no-startup-id "sh -c 'sleep 2; exec urxvt'"
 
 # Browser
-exec --no-startup-id "sh -c 'sleep 4.5; exec waterfox'"
+exec --no-startup-id "sh -c 'sleep 3; exec waterfox'"
 
 # VS Code
-exec --no-startup-id "sh -c 'sleep 5; exec code'"
+exec --no-startup-id "sh -c 'sleep 4; exec code'"
 
-# Audio routing (qpwgraph) - load saved patchbay configuration
-exec --no-startup-id "sh -c 'sleep 4; exec qpwgraph -a -m ~/.config/qpwgraph/default.qpwgraph'"
+# Messaging apps
+exec --no-startup-id "sh -c 'sleep 5; exec flatpak run org.telegram.desktop'"
+exec --no-startup-id "sh -c 'sleep 5; exec signal-desktop'"
+exec --no-startup-id "sh -c 'sleep 5; exec discord'"
 
 ###############################################################################
 #                                    dmenu                                    #

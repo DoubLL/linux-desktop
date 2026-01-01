@@ -100,7 +100,7 @@ Files follow the pattern `XXX_descriptive_name.md` where:
 
 - Python 3.13.x (`/usr/bin/python3`)
 - Git 2.x (`/usr/bin/git`)
-- VS Code (Flatpak installation)
+- VS Code (`/usr/bin/code`)
 
 ## Maintaining This Documentation
 

@@ -6,22 +6,22 @@ When i3 starts (via GDM/COSMIC login), several commands automatically execute in
 
 ## Autostart Command Sequence
 
-### 1. Monitor Layout (Sleep 1s)
+### 1. Monitor Layout
 
 ```bash
-exec --no-startup-id "sh -c 'sleep 1; sh ~/.local/bin/monitor-layout.sh'"
+exec --no-startup-id "~/dev/linux/scripts/monitor-layout.sh >> /tmp/i3-monitor-layout.log 2>&1"
 ```
 
 **Purpose**: Configure multi-monitor setup with `xrandr`
 
-**File**: `~/dev/i3/monitor-layout.sh`
+**File**: [~/dev/linux/scripts/monitor-layout.sh](../../scripts/monitor-layout.sh)
 
 **Configures**:
 
 - DP-4 (left): 3840x2160 at position 0,0
-- DP-3 (center): 1920x1080 at position 3840,0
+- DP-3 (right): 1920x1080 at position 3840,0
 - DP-1 (below-right): 2048x1152 at position 3840,1080
-- HDMI-0: Off
+- HDMI-0: Mirrors DP-3
 
 ### 2. Xresources Configuration
 
@@ -149,26 +149,14 @@ exec --no-startup-id "sh -c 'sleep 4; exec qpwgraph -a -m ~/.config/qpwgraph/def
 
 **Configuration**: `~/.config/qpwgraph/default.qpwgraph` (saved routing setup)
 
-## Timing Strategy
-
-Sleep delays are cumulative and intentional:
-
-- **1s (monitor layout)**: Ensure X11 has initialized
-- **1s (Xresources)**: Quick, runs immediately
-- **3s (wallpaper)**: Wait for monitors to fully apply before setting wallpaper
-- **1s+ (applications)**: Stagger application launches to prevent system overload
-
-Total time from i3 start to all autostart tasks: ~4-5 seconds
 
 ## Configuration File Locations
 
 | Component | Config File |
 | --------- | ----------- |
 | i3 Config | `~/.config/i3/config` |
-| Monitor Layout Script | `~/dev/i3/monitor-layout.sh` |
+| Monitor Layout Script | `~/dev/linux/scripts/monitor-layout.sh` |
 | Xresources | `~/.config/Xresources` |
-| Wallpaper | `~/Pictures/microsoft-windows-95.png` |
-| QjackCtl Routing | `~/.config/qpwgraph/default.qpwgraph` |
 | OpenTabletDriver | `~/.config/OpenTabletDriver/settings.json` |
 
 ## Modifying Autostart
