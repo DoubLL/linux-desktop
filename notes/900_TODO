@@ -1,0 +1,22 @@
+# TODO List
+
+## Usability
+
+- [ ] Autostart apps
+- [ ] Assign apps to start at certain positions
+- [ ] Default workspace configurations
+- [ ] Quickstart app keybindings
+
+## Ricing
+
+- [ ] Make Todo list for ricing tasks
+- [ ] Replace all flatpak installs with native packages (Flatpak causes DBus/sandboxing issues with X11/i3. Native packages are simpler and more reliable. Never install with flatpak again.)
+
+## Server Setup
+
+- [ ] Create permanent connection from this machine to my home server for file sync and remote access
+  - [ ] Set up SSH keys for passwordless login
+  - [ ] Configure `rclone` for syncing specific directories
+  - [ ] Set up VPN or SSH tunnel for secure remote access
+- [ ] un-fuck current server configurations
+- [ ] Document server setup and configurations
